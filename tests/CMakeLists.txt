@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(fizzbuzz LANGUAGES CXX)
 include(CTest)
 
+set(CMAKE_CXX_STANDARD 17)
 
 # At first, we want all the targets defined in the subdirectories to have the same warnings configured.
 if (MSVC)
@@ -75,6 +76,8 @@ include_directories(
 add_executable(${PROJECT_NAME}
     ../src/fizzbuzz_basic_non_concat.cpp
     ../src/fizzbuzz_composable.cpp
+    ../src/fizzbuzz_lambda_opt_concat.cpp
+    ../src/fizzbuzz_lambda_concat.cpp
     fizzbuzz-test.cpp
 )
 
@@ -84,6 +87,8 @@ target_link_libraries("${PROJECT_NAME}" gtest_main)
 add_executable(${PROJECT_NAME}-bench
     ../src/fizzbuzz_basic_non_concat.cpp
     ../src/fizzbuzz_composable.cpp
+    ../src/fizzbuzz_lambda_opt_concat.cpp
+    ../src/fizzbuzz_lambda_concat.cpp
     fizzbuzz-bench.cpp
 )
 
