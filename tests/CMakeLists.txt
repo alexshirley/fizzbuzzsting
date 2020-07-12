@@ -77,10 +77,16 @@ add_executable(${PROJECT_NAME}
     fizzbuzz-test.cpp
 )
 
-# google benchmark
-#target_link_libraries("${PROJECT_NAME}-bench" benchmark::benchmark)
-
 # googletest
 target_link_libraries("${PROJECT_NAME}" gtest_main)
+
+add_executable(${PROJECT_NAME}-bench
+    ../src/fizzbuzz_basic_non_concat.cpp
+    fizzbuzz-bench.cpp
+)
+
+# google benchmark
+target_link_libraries("${PROJECT_NAME}-bench" benchmark::benchmark)
+
 
 add_test(${PROJECT_NAME}-test ${PROJECT_NAME})
