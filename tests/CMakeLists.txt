@@ -74,6 +74,7 @@ include_directories(
 
 add_executable(${PROJECT_NAME}
     ../src/fizzbuzz_basic_non_concat.cpp
+    ../src/fizzbuzz_composable.cpp
     fizzbuzz-test.cpp
 )
 
@@ -82,6 +83,7 @@ target_link_libraries("${PROJECT_NAME}" gtest_main)
 
 add_executable(${PROJECT_NAME}-bench
     ../src/fizzbuzz_basic_non_concat.cpp
+    ../src/fizzbuzz_composable.cpp
     fizzbuzz-bench.cpp
 )
 
