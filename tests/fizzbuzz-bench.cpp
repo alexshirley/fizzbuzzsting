@@ -3,6 +3,7 @@
 #include <fizzbuzz_composable.h>
 #include <fizzbuzz_lambda_opt_concat.h>
 #include <fizzbuzz_lambda_concat.h>
+#include <fizzbuzz_lut.h>
 
 static void FB_nonConcat(benchmark::State& state){
     for (auto _ : state)
@@ -39,5 +40,14 @@ static void FB_lambda_concat(benchmark::State& state){
         }
 }
 BENCHMARK(FB_lambda_concat);
+
+static void FB_lut(benchmark::State& state){
+    for (auto _ : state)
+        for (auto i = 1; i < 101; i++){
+            auto res = fizz_buzz_lut(i);
+            benchmark::DoNotOptimize(res);
+        }
+}
+BENCHMARK(FB_lut);
 
 BENCHMARK_MAIN();

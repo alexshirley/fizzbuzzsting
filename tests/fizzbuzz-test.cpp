@@ -3,6 +3,7 @@
 #include <fizzbuzz_composable.h>
 #include <fizzbuzz_lambda_opt_concat.h>
 #include <fizzbuzz_lambda_concat.h>
+#include <fizzbuzz_lut.h>
 
 namespace fizzbuzz{
 
@@ -44,6 +45,15 @@ TEST_F(fizzbuzz_sanity_test, fb_lambda){
     EXPECT_STREQ(should_be_buzz.c_str(),"Buzz");
     auto should_be_fizzbuzz = fizzbuzz_lambda_concat(15);
     EXPECT_STREQ(should_be_fizzbuzz.c_str(),"FizzBuzz");
+}
+
+TEST_F(fizzbuzz_sanity_test, fb_lut){
+    auto should_be_fizz = fizz_buzz_lut(3);
+    EXPECT_STREQ(std::string(std::get<0>(should_be_fizz)).c_str(),"Fizz");
+    auto should_be_buzz = fizz_buzz_lut(5);
+    EXPECT_STREQ(std::string(std::get<0>(should_be_buzz)).c_str(),"Buzz");
+    auto should_be_fizzbuzz = fizz_buzz_lut(15);
+    EXPECT_STREQ(std::string(std::get<0>(should_be_fizzbuzz)).c_str(),"FizzBuzz");
 }
 
 }
