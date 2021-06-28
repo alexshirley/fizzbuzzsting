@@ -75,7 +75,6 @@ add_executable(${PROJECT_NAME}
     ../src/fizzbuzz_composable.cpp
     ../src/fizzbuzz_lambda_opt_concat.cpp
     ../src/fizzbuzz_lambda_concat.cpp
-    ../src/fizzbuzz_lut.cpp
     fizzbuzz-test.cpp
 )
 
